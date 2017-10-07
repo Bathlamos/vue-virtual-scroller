@@ -4,6 +4,7 @@
     <component :is="containerTag" class="item-container" :class="containerClass" :style="itemContainerStyle">
       <slot name="before-content"></slot>
       <component :is="contentTag" class="items" :class="contentClass" :style="itemsStyle">
+        <slot name="rows-content"></slot>
         <template v-if="renderers">
           <component class="item" v-for="(item, index) in visibleItems" :key="keysEnabled && item[keyField] || ''" :is="renderers[item[typeField]]" :item="item" :item-index="_startIndex + index"></component>
         </template>
